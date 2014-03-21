@@ -4,7 +4,7 @@
  * Plugin Name: Make me Droid Mobile App Connector
  * Plugin URI: http://www.makemedroid.com
  * Description: Connect your WordPress blog or site to your Android or IPhone mobile application made on Make me Droid. You can visualize information about your app, send automatic push messages to the app when you write new articles on your blog, and more.
- * Version: Version 1.1
+ * Version: 1.1
  * Author: Make me Droid (contact@makemedroid.com)
  * Author URI:  http://www.makemedroid.com
  * Text Domain: makemedroid-wp-connector
