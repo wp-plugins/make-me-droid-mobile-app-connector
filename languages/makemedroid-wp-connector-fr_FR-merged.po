@@ -1,0 +1,210 @@
+# Make me Droid Wordpress Plugin translation strings
+# GETTEXT CONFIGURATION
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "admin_title"
+msgstr "Connecteur Wordpress - Make me Droid"
+
+msgid "admin_intro"
+msgstr ""
+"<b>Make me Droid</b> (<a href=\"%s\" target=\"_blank\">www.makemedroid.com</"
+"a>): Création d'applications Android et IPhone en ligne."
+
+msgid "admin_feature_list_title"
+msgstr "Qu'est-ce que ce plugin peut faire pour vous?"
+
+msgid "admin_feature_1"
+msgstr ""
+"Il <b>partage le même contenu</b> entre votre blog et vos applications "
+"Android et IPhone."
+
+msgid "admin_feature_2"
+msgstr ""
+"Grâce au partage de contenu automatique, il vous permet de <b>réaliser votre "
+"application mobile très facilement</b> sur Make me Droid. En quelques clics "
+"vous serez prêt à <b>attirer de nouveaux lecteurs</b> pour votre blog."
+
+msgid "admin_feature_3"
+msgstr ""
+"Il envoie automatiquement une <b>notification PUSH</b> sur les mobiles, dès "
+"que vous publiez un nouvel article."
+
+msgid "admin_feature_4"
+msgstr ""
+"Il distribue le contenu de votre blog via le <b>format JSON</b>, utilisable "
+"directement sur Make me Droid comme vous le souhaitez via les sources de "
+"données."
+
+msgid "admin_feature_5"
+msgstr ""
+"Via l'application mobile, vos lecteurs peuvent <b>partager vos articles sur "
+"les réseaux sociaux</b> très facilement."
+
+msgid "admin_feature_list_note"
+msgstr ""
+"<u>NOTE</u></b>: Ne vous inquiétez pas si vous ne connaissez pas certains "
+"mots techniques tels que \"messages PUSH\", \"JSON\" ou \"sources de données"
+"\"! Nous avons rendu presque tout automatique pour vous!"
+
+msgid "admin_howto_get_app_title"
+msgstr "Comment créer une application mobile pour mon blog ?"
+
+msgid "admin_howto_get_app_item_1"
+msgstr ""
+"Rendez-vous sur <a href=\"%s\" target=\"_blank\">www.makemedroid.com</a> et "
+"enregistez-vous en tant que nouvel utilisateur."
+
+msgid "admin_howto_get_app_item_2"
+msgstr "Créez une nouvelle application."
+
+msgid "admin_howto_get_app_item_3"
+msgstr ""
+"Lisez notre <a href=\"%s\" target=\"_blank\">tutoriel en 10 étapes</a> pour "
+"vous familiariser avec Make me Droid."
+
+msgid "admin_howto_get_app_item_4"
+msgstr "Connectez votre application à votre blog (voir ci-dessous)."
+
+msgid "admin_howto_get_app_item_5"
+msgstr ""
+"<a href=\"%s\" target=\"_blank\">Testez votre application</a> et <a href=\"%"
+"s/\" target=\"_blank\">publiez là</a>."
+
+msgid "admin_connect_title"
+msgstr "Comment connecter mon application mobile à ce blog ?"
+
+msgid "admin_connect_basic"
+msgstr "Méthode basique, pour débuter"
+
+msgid "admin_connect_advanced"
+msgstr "Méthode avancée, flexibilité"
+
+msgid "admin_connect_item_1"
+msgstr ""
+"Dans votre application Make me Droid, <b>ajoutez un écran Blog Wordpress</b> "
+"et fournissez l'adresse de votre blog. Make me Droid et votre blog entreront "
+"en contact et continueront de communiquer par la suite."
+
+msgid "admin_connect_item_2"
+msgstr ""
+"Définissez ce nouvel écran comme <b>écran initial</b>. Générez et testez "
+"l'application, comme indiqué dans les guides précédents."
+
+msgid "admin_connect_item_3"
+msgstr ""
+"Le modèle d'écran que nous vous proposons est votre point de départ, mais il "
+"est totalement personnalisable ! Modifiez-le comme vous le souhaitez, en "
+"essayant de comprendre comment Make me Droid fonctionne auparavant si "
+"possible."
+
+msgid "admin_connect_item_4"
+msgstr ""
+"Utilisez directement les <b>sources de données JSON</b> fournies par ce "
+"plugin sur vos écrans ou éléments d'écrans."
+
+msgid "admin_connect_item_5"
+msgstr ""
+"Lisez nos guides <a href=\"%s\" target=\"_blank\">au sujet de JSON</a> si "
+"vous souhaitez en apprendre plus."
+
+msgid "admin_connect_item_6"
+msgstr ""
+"Avec un peu d'imagination et de personnalisation, vous obtiendrez de très "
+"bons résultats pour votre application, étant donné que les sources de "
+"données JSON vous fournissent toute l'information dont vous avez besoin !"
+
+msgid "admin_about_title"
+msgstr "Informations sur votre application"
+
+msgid "admin_abount_contacted"
+msgstr "L'application Make me Droid suivante a contacté votre blog:"
+
+msgid "admin_account"
+msgstr "COMPTE"
+
+msgid "admin_app_name"
+msgstr "NOM APPLI"
+
+msgid "admin_api_key"
+msgstr "CLE API"
+
+msgid "admin_app_key"
+msgstr "CLE APPLI"
+
+msgid "admin_package"
+msgstr "IDENTIFICATION APPLI"
+
+msgid "admin_listening_devices"
+msgstr "NOMBRE D'APPAREILS A L'ECOUTE"
+
+msgid "admin_account_no_contact"
+msgstr ""
+"Aucune application Make me Droid n'est entrée en contact avec votre blog "
+"pour l'instant.<br/>Connectez-vous à votre blog depuis Make me Droid."
+
+msgid "admin_help_title"
+msgstr "Houla, tout ceci n'est pas très clair... Un peu d'aide?"
+
+msgid "admin_help_forum"
+msgstr ""
+"Bien sûr! Visitez notre <a href=\"http://www.makemedroid.com/forum/\" target="
+"\"_blank\">FORUM</a> et posez votre question ou essayez de trouver votre "
+"bonheur dans les sujets existants.<br/><u>Note</u>: vous devez d'abord "
+"posséder un compte Make me Droid pour avoir accès au forum."
+
+msgid "admin_url_title"
+msgstr "Sources de données JSON"
+
+msgid "admin_url_intro"
+msgstr ""
+"Si vous savez comment utiliser les sources de données JSON sur Make me "
+"Droid, voici les URLs que vous pouvez utiliser:"
+
+msgid "admin_url_1"
+msgstr "Liste des articles du blog avec commentaires et médias associés"
+
+msgid "admin_url_2"
+msgstr "Liste des catégories du blog"
+
+msgid "admin_url_3"
+msgstr "Liste des commentaires du blog"
+
+msgid "admin_url_4"
+msgstr "Liste des médias (images, sons, vidéos) d'un article"
+
+msgid "admin_url_5"
+msgstr "Pour poster un commentaire sur un article"
+
+msgid "admin_view_it"
+msgstr "Visualiser"
+
+msgid "admin_url_opt_field"
+msgstr "Champ optionnel dans l'URL"
+
+msgid "admin_url_req_field"
+msgstr "Champ requis dans l'URL"
+
+msgid "admin_url_1_catid_info"
+msgstr "pour lister uniquement les articles de cette catégorie."
+
+msgid "admin_url_3_postid_info"
+msgstr "pour lister uniquement les commentaires de cet article."
+
+msgid "admin_url_4_postid_info"
+msgstr "l'article dont vous souhiatez obtenir les informations."
+
+msgid "admin_url_5_info"
+msgstr "Utilisez cette adresse pour poster un formulaire Make me Droid."
+
+msgid "admin_url_5_postid_info"
+msgstr "ID de l'article sur lequel poster."
+
+msgid "admin_url_5_name_info"
+msgstr "nom de l'auteur du commentaire."
+
+msgid "admin_url_5_email_info"
+msgstr "adresse email de l'auteur du commentaire."
+
+msgid "admin_url_5_comment_info"
+msgstr "contenu du commentaire."

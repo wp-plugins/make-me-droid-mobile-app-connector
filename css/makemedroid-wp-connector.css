@@ -1,0 +1,38 @@
+
+#mmd-connector ul {
+	list-style-image:url("../img/bullet.png");
+	margin-left:20px;
+}
+
+.mmd-wp-json-url-title {
+	font-size:18px;
+	margin-bottom:5px;
+	background:white;
+	padding:10px;
+	margin-bottom:10px;
+	border: solid 1px gray;
+}
+
+.mmd-wp-json-url {
+	display:inline-block;
+	font-size:14px;
+	/*background:#32516D;*/
+	color:#61A2CC;
+	padding:5px;
+	margin-right:10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.mmd-wp-padded_td_table td {
+	padding:2px;
+}
+
+.mmd-wp-json-url-text {
+	padding:5px;
+}
+
+.mmd-wp-json-url-params {
+	padding:5px;
+}
