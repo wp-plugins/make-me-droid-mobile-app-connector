@@ -269,14 +269,4 @@ function mmd_wp_post_published($post_id)
 	}
 }
 
-/*
- * DEVELOPMENT/DBEUG HELPERS BELOW THIS LINE
- */
-//add_filter('locale', 'mmd_wp_get_locale');
-function mmd_wp_get_locale($locale)
-{
-	return "fr_FR";
-	//return "en_US";
-}
-
 ?>
