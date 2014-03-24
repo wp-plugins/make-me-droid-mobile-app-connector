@@ -4,7 +4,7 @@
  * Plugin Name: Make me Droid Mobile App Connector
  * Plugin URI: http://www.makemedroid.com
  * Description: Connect your WordPress blog or site to your Android or IPhone mobile application made on Make me Droid. You can visualize information about your app, send automatic push messages to the app when you write new articles on your blog, and more.
- * Version: 1.1
+ * Version: Version 1.2
  * Author: Make me Droid (contact@makemedroid.com)
  * Author URI:  http://www.makemedroid.com
  * Text Domain: makemedroid-wp-connector
@@ -28,6 +28,8 @@ register_activation_hook(__FILE__, 'mmd_wp_plugin_activated');
 add_action('init', 'mmd_wp_init' );
 // Plugins loaded
 add_action('plugins_loaded', 'mmd_wp_plugins_loaded');
+// Get plugin's locale
+add_filter('locale', 'mmd_wp_get_locale');
 
 // Catch the right URLs and redirect to our JSON content
 add_filter('rewrite_rules_array', 'mmd_wp_create_rewrite_rules');
@@ -49,7 +51,7 @@ function mmd_wp_init()
 function mmd_wp_plugins_loaded()
 {
 	// Load internationalization files.
-	load_plugin_textdomain(MMD_WP_SLUG, false, basename(dirname( __FILE__ )) . '/languages' );
+	load_plugin_textdomain(MMD_WP_SLUG, false, basename(dirname( __FILE__ )) . '/'.MMD_WP_LANG_PATH);
 }
 
 /*
@@ -118,6 +120,32 @@ function mmd_wp_template_redirect_intercept()
 function mmd_wp_plugin_activated()
 {
 	// Nothing yet.
+}
+
+/*
+ * Tells which locale this plugin wants to use to wordpress.
+ * We use user or default locale if a translation is available, otherwise we fallback to english translations.
+ * Locale format: "en_US"
+ */
+function mmd_wp_get_locale($locale)
+{
+	$expectedLocale = null;
+	
+	//$locale = "da_DK"; // FOR DEBUG PURPOSE ONLY - TO FORCE LOCALE TO SHOW
+	
+	if (function_exists('wp_get_current_user'))
+        $expectedLocale = get_user_meta(get_current_user_id(), 'user_lang', 'true');
+	
+	// No user locale: use blog's global locale
+	if ($expectedLocale == null)
+		$expectedLocale = $locale;
+		
+	// Check if a translation file is available for the required locale. If so, we use it. If not, we fallback to en_US.
+	$moFilePath = dirname( __FILE__ ) . '/'.MMD_WP_LANG_PATH.'/'.MMD_WP_SLUG.'-'.$expectedLocale.'.mo';
+	if (file_exists($moFilePath))
+		return $expectedLocale;
+	else
+		return "en_US";
 }
 
 ?>

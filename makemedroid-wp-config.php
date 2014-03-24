@@ -6,6 +6,7 @@ define('MMD_WP_PLUGIN_KEY', 'MMDConnector');
 define('MMD_WP_SHORT_PATH', 'mmd-connect');
 define('WP_ROOT_PATH', dirname( __FILE__ )."/../../..");
 define('MMD_WP_PLUGIN_URL', plugin_dir_url( __FILE__ ));
+define('MMD_WP_LANG_PATH', 'languages');
 
 define('MMD_WP_GETARTICLES_KEY', 'getarticles');
 define('MMD_WP_GETCATEGORIES_KEY', 'getcategories');

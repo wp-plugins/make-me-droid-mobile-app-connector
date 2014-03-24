@@ -3,7 +3,7 @@ Contributors: Make me Droid
 Tags: mobile app, android, iphone, app builder, make me droid, makemedroid, wordpress mobile
 Requires at least: 3.0.0
 Tested up to: 3.8.0
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ A mobile website still needs users to type your address manually in a browser. H
 2. Make me Droid website
 
 == Changelog ==
+
+= 1.2 =
+* Fixed internationalization bug for all blogs not being in english or french. Now correctly falling back to english by default.
 
 = 1.1 =
 * First release of this Wordpress plugin.
