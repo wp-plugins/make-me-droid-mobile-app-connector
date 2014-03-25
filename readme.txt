@@ -1,6 +1,6 @@
 === Make me Droid Mobile App Connector ===
 Contributors: Make me Droid
-Tags: mobile app, android, iphone, app builder, make me droid, makemedroid, wordpress mobile
+Tags: app, mobile app, android, iphone, app builder, makemedroid, mobile, posts, admin, api, automatic, feed, free, notification, statistics, wordpress
 Requires at least: 3.0.0
 Tested up to: 3.8.0
 Stable tag: 1.2
