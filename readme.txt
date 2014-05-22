@@ -1,9 +1,9 @@
 === Make me Droid Mobile App Connector ===
 Contributors: Make me Droid
-Tags: mobile app, android, iphone, app builder, make me droid, makemedroid, wordpress mobile
+Tags: app, mobile app, android, iphone, app builder, mobile, posts, admin, api, automatic, feed, free, notification, statistics, wordpress, makemedroid
 Requires at least: 3.0.0
-Tested up to: 3.8.0
-Stable tag: 1.2
+Tested up to: 3.9.0
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ A mobile website still needs users to type your address manually in a browser. H
 2. Make me Droid website
 
 == Changelog ==
+
+= 1.3 =
+* Fix: plugin made the whole WP admin become english sometimes. This now doesn't happen any more.
 
 = 1.2 =
 * Fixed internationalization bug for all blogs not being in english or french. Now correctly falling back to english by default.
