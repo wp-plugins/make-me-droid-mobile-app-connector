@@ -3,7 +3,7 @@ Contributors: Make me Droid
 Tags: app, mobile app, android, iphone, app builder, mobile, posts, admin, api, automatic, feed, free, notification, statistics, wordpress, makemedroid
 Requires at least: 3.0.0
 Tested up to: 3.9.0
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ What can this plugin do for you ?
 *	It distributes your blog content as a JSON format that is immediately ready for Make me Droid data sources.
 *	Through the mobile app, it provides a way for users to share your articles on social networks, to increase your audience.
 
-You can get support from our [forum](http://www.makemedroid.com/forum/).
+You can get support from our [forum](http://www.makemedroid.com/forum/), or write to contact@makemedroid.com for any bug in the plugin.
 
 == Installation ==
 
@@ -47,6 +47,9 @@ A mobile website still needs users to type your address manually in a browser. H
 2. Make me Droid website
 
 == Changelog ==
+
+= 1.4 =
+* Added credits for Make me Droid in site footer. Feel free to remove it from the plugin if you don't want to support us.
 
 = 1.3 =
 * Fix: plugin made the whole WP admin become english sometimes. This now doesn't happen any more.
