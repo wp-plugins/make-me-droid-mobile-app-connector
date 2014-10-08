@@ -166,3 +166,11 @@ msgstr "comment author's email address."
 msgid "admin_url_5_comment_info"
 msgstr "comment content."
 
+
+
+
+
+
+msgid "footer_mmd_credit_mobile_app_sponsored"
+msgstr "Mobile application powered by Make me Droid, the <a href='http://www.makemedroid.com' target='_blank'>online Android/IOS app builder</a>."
+
