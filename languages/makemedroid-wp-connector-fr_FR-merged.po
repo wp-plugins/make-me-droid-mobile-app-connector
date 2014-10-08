@@ -208,3 +208,9 @@ msgstr "adresse email de l'auteur du commentaire."
 
 msgid "admin_url_5_comment_info"
 msgstr "contenu du commentaire."
+
+msgid "footer_mmd_credit_mobile_app_sponsored"
+msgstr ""
+"Application mobile en partenariat avec Make me Droid, le <a href='http://www."
+"makemedroid.com' target='_blank'>créateur d'applications Android/IOS en "
+"ligne</a>."
