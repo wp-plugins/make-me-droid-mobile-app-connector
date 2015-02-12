@@ -32,21 +32,21 @@ function mmd_wp_build_admin_options_menu()
 {
 ?>
 <div id="mmd-connector">
-	<h2><? echo _tran('admin_title'); ?></h2>
+	<h2><?php echo _tran('admin_title'); ?></h2>
 	
-<?
+<?php
 
 	// .htaccess must be writable
 	if (!wp_is_writable(WP_ROOT_PATH."/.htaccess"))
 	{
-		echo '<div id="message" class="error"><b>Error:</b> .htaccess must be writable. Please check your server configuration.</div>';
+		echo '<div id="message" class="mmd-wp-error"><b>Error:</b> .htaccess must be writable. Please check your server configuration.</div>';
 	}
 	
 	// Permalinks must be enabled, to make sure URL rewriting works.
 	global $wp_rewrite;  
 	if (!is_array($wp_rewrite->rules))
 	{
-		echo '<div id="message" class="error"><b>Error:</b> You have to enable permalinks for this plugin to work.</div>';
+		echo '<div id="message" class="mmd-wp-error"><b>Error:</b> You have to enable permalinks for this plugin to work.</div>';
 	}
 	
 	$currentUser = wp_get_current_user();
@@ -58,66 +58,66 @@ function mmd_wp_build_admin_options_menu()
 	
 ?>
 	<p>
-		<? printf(_tran('admin_intro'), $newAccountURL); ?>
+		<?php printf(_tran('admin_intro'), $newAccountURL); ?>
 	</p>
 	
-	<a href="<? echo $newAccountURL; ?>" target="_blank"><img src="<? echo MMD_WP_PLUGIN_URL."img/MMDLogo.png"; ?>" width="150"/></a>
+	<a href="<?php echo $newAccountURL; ?>" target="_blank"><img src="<?php echo MMD_WP_PLUGIN_URL."img/MMDLogo.png"; ?>" width="150"/></a>
 	
-	<h3><? echo _tran('admin_feature_list_title'); ?></h3>
+	<h3><?php echo _tran('admin_feature_list_title'); ?></h3>
 	<p>
 		<ul>
-			<li><? echo _tran('admin_feature_1'); ?></li>
-			<li><? echo _tran('admin_feature_2'); ?></li>
-			<li><? echo _tran('admin_feature_3'); ?></li>
-			<li><? echo _tran('admin_feature_4'); ?></li>
-			<li><? echo _tran('admin_feature_5'); ?></li>
+			<li><?php echo _tran('admin_feature_1'); ?></li>
+			<li><?php echo _tran('admin_feature_2'); ?></li>
+			<li><?php echo _tran('admin_feature_3'); ?></li>
+			<li><?php echo _tran('admin_feature_4'); ?></li>
+			<li><?php echo _tran('admin_feature_5'); ?></li>
 		</ul>
 		<br/>
-		<b><? echo _tran('admin_feature_list_note'); ?>
+		<b><?php echo _tran('admin_feature_list_note'); ?>
 		<br/><br/>
 	</p>
 
-	<h3><? echo _tran('admin_howto_get_app_title'); ?></h3>
+	<h3><?php echo _tran('admin_howto_get_app_title'); ?></h3>
 	<ul>
-		<li><? printf(_tran('admin_howto_get_app_item_1'), $newAccountURL); ?></li>
-		<li><? echo _tran('admin_howto_get_app_item_2'); ?></li>
-		<li><? printf(_tran('admin_howto_get_app_item_3'), "http://www.makemedroid.com/".getLanguageSlugForMakeMeDroidURL()."/guides/firstapptutorial/"); ?></li>
-		<li><? echo _tran('admin_howto_get_app_item_4'); ?></li>
-		<li><? printf(_tran('admin_howto_get_app_item_5'), "http://www.makemedroid.com/".getLanguageSlugForMakeMeDroidURL()."/guides/testing/", "http://www.makemedroid.com/".getLanguageSlugForMakeMeDroidURL()."/guides/publishing/"); ?></li>
+		<li><?php printf(_tran('admin_howto_get_app_item_1'), $newAccountURL); ?></li>
+		<li><?php echo _tran('admin_howto_get_app_item_2'); ?></li>
+		<li><?php printf(_tran('admin_howto_get_app_item_3'), "http://www.makemedroid.com/".getLanguageSlugForMakeMeDroidURL()."/guides/firstapptutorial/"); ?></li>
+		<li><?php echo _tran('admin_howto_get_app_item_4'); ?></li>
+		<li><?php printf(_tran('admin_howto_get_app_item_5'), "http://www.makemedroid.com/".getLanguageSlugForMakeMeDroidURL()."/guides/testing/", "http://www.makemedroid.com/".getLanguageSlugForMakeMeDroidURL()."/guides/publishing/"); ?></li>
 	</ul>
 	
-	<h3><? echo _tran('admin_connect_title'); ?></h3>
+	<h3><?php echo _tran('admin_connect_title'); ?></h3>
 	<ul>
 		<li>
-			<b><u><? echo _tran('admin_connect_basic'); ?></u></b><br/>
+			<b><u><?php echo _tran('admin_connect_basic'); ?></u></b><br/>
 			<ul>
-				<li><? echo _tran('admin_connect_item_1'); ?></li>
-				<li><? echo _tran('admin_connect_item_2'); ?></li>
-				<li><? echo _tran('admin_connect_item_3'); ?></li>
+				<li><?php echo _tran('admin_connect_item_1'); ?></li>
+				<li><?php echo _tran('admin_connect_item_2'); ?></li>
+				<li><?php echo _tran('admin_connect_item_3'); ?></li>
 			</ul>
 		</li>
 		<li>
-			<b><u><? echo _tran('admin_connect_advanced'); ?></u></b><br/>
+			<b><u><?php echo _tran('admin_connect_advanced'); ?></u></b><br/>
 			<ul>
-				<li><? echo _tran('admin_connect_item_4'); ?></li>
-				<li><? printf(_tran('admin_connect_item_5'), "http://www.makemedroid.com/".getLanguageSlugForMakeMeDroidURL()."/guides/jsondatasources/"); ?></li>
-				<li><? echo _tran('admin_connect_item_6'); ?></li>
+				<li><?php echo _tran('admin_connect_item_4'); ?></li>
+				<li><?php printf(_tran('admin_connect_item_5'), "http://www.makemedroid.com/".getLanguageSlugForMakeMeDroidURL()."/guides/jsondatasources/"); ?></li>
+				<li><?php echo _tran('admin_connect_item_6'); ?></li>
 			</ul>
 		</li>
 	</ul>
 	
 	<table class="mmd-wp-padded_td_table">
 		<tr>
-			<td><img src="<? echo MMD_WP_PLUGIN_URL."img/mobile-screen-1.jpg"; ?>"/></td>
-			<td><img src="<? echo MMD_WP_PLUGIN_URL."img/mobile-screen-2.jpg"; ?>"/></td>
-			<td><img src="<? echo MMD_WP_PLUGIN_URL."img/mobile-screen-3.jpg"; ?>"/></td>
+			<td><img src="<?php echo MMD_WP_PLUGIN_URL."img/mobile-screen-1.jpg"; ?>"/></td>
+			<td><img src="<?php echo MMD_WP_PLUGIN_URL."img/mobile-screen-2.jpg"; ?>"/></td>
+			<td><img src="<?php echo MMD_WP_PLUGIN_URL."img/mobile-screen-3.jpg"; ?>"/></td>
 		</tr>
 	</table>
 				
 	
-	<h3><? echo _tran('admin_about_title'); ?></h3>
+	<h3><?php echo _tran('admin_about_title'); ?></h3>
 	<p>
-	<?
+	<?php
 	
 		$appFound = false;
 		$apiKey = get_option("app_0_api_key");
@@ -167,66 +167,66 @@ function mmd_wp_build_admin_options_menu()
 	?>
 	</p>
 	
-	<h3><? echo _tran('admin_help_title'); ?></h3>
+	<h3><?php echo _tran('admin_help_title'); ?></h3>
 	<p>
-		<? echo _tran('admin_help_forum'); ?>
+		<?php echo _tran('admin_help_forum'); ?>
 	</p>
 	
-	<h3><? echo _tran('admin_url_title'); ?></h3>
+	<h3><?php echo _tran('admin_url_title'); ?></h3>
 	
-	<p><? echo _tran('admin_url_intro'); ?></p>
+	<p><?php echo _tran('admin_url_intro'); ?></p>
  
 	<p>
-		<div class="mmd-wp-json-url-title"><? echo _tran('admin_url_1'); ?></div>
-		<div class="mmd-wp-json-url"><? echo ARTICLES_URL; ?></div>
-		<? echo "<a href='".ARTICLES_URL."' target='_blank'>"; ?><? echo _tran('admin_view_it'); ?></a>
+		<div class="mmd-wp-json-url-title"><?php echo _tran('admin_url_1'); ?></div>
+		<div class="mmd-wp-json-url"><?php echo ARTICLES_URL; ?></div>
+		<?php echo "<a href='".ARTICLES_URL."' target='_blank'>"; ?><?php echo _tran('admin_view_it'); ?></a>
 		<div class="mmd-wp-json-url-params">
-			<b><? echo _tran('admin_url_opt_field'); ?>:</b> "catid": <? echo _tran('admin_url_1_catid_info'); ?>
+			<b><?php echo _tran('admin_url_opt_field'); ?>:</b> "catid": <?php echo _tran('admin_url_1_catid_info'); ?>
 		</div>
 	</p>
 	
 	<p>
-		<div class="mmd-wp-json-url-title"><? echo _tran('admin_url_2'); ?></div>
-		<div class="mmd-wp-json-url"><? echo CATEGORIES_URL; ?></div>
-		<? echo "<a href='".CATEGORIES_URL."' target='_blank'>"; ?><? echo _tran('admin_view_it'); ?></a>
+		<div class="mmd-wp-json-url-title"><?php echo _tran('admin_url_2'); ?></div>
+		<div class="mmd-wp-json-url"><?php echo CATEGORIES_URL; ?></div>
+		<?php echo "<a href='".CATEGORIES_URL."' target='_blank'>"; ?><?php echo _tran('admin_view_it'); ?></a>
 	</p>
 	
 	<p>
-		<div class="mmd-wp-json-url-title"><? echo _tran('admin_url_3'); ?></div>
-		<div class="mmd-wp-json-url"><? echo COMMENTS_URL; ?></div>
-		<? echo "<a href='".COMMENTS_URL."' target='_blank'>"; ?><? echo _tran('admin_view_it'); ?></a>
+		<div class="mmd-wp-json-url-title"><?php echo _tran('admin_url_3'); ?></div>
+		<div class="mmd-wp-json-url"><?php echo COMMENTS_URL; ?></div>
+		<?php echo "<a href='".COMMENTS_URL."' target='_blank'>"; ?><?php echo _tran('admin_view_it'); ?></a>
 		<div class="mmd-wp-json-url-params">
-			<b><? echo _tran('admin_url_opt_field'); ?>:</b> "postid": <? echo _tran('admin_url_3_postid_info'); ?>
+			<b><?php echo _tran('admin_url_opt_field'); ?>:</b> "postid": <?php echo _tran('admin_url_3_postid_info'); ?>
 		</div>
 	</p>
 	
 	<p>
-		<div class="mmd-wp-json-url-title"><? echo _tran('admin_url_4'); ?></div>
-		<div class="mmd-wp-json-url"><? echo ATTACHMENTS_URL; ?></div>
-		<? echo "<a href='".ATTACHMENTS_URL."' target='_blank'>"; ?><? echo _tran('admin_view_it'); ?></a>
+		<div class="mmd-wp-json-url-title"><?php echo _tran('admin_url_4'); ?></div>
+		<div class="mmd-wp-json-url"><?php echo ATTACHMENTS_URL; ?></div>
+		<?php echo "<a href='".ATTACHMENTS_URL."' target='_blank'>"; ?><?php echo _tran('admin_view_it'); ?></a>
 		<div class="mmd-wp-json-url-params">
-			<b><? echo _tran('admin_url_req_field'); ?>:</b> "postid": <? echo _tran('admin_url_4_postid_info'); ?>
+			<b><?php echo _tran('admin_url_req_field'); ?>:</b> "postid": <?php echo _tran('admin_url_4_postid_info'); ?>
 		</div>
 	</p>
 	
 	<p>
-		<div class="mmd-wp-json-url-title"><? echo _tran('admin_url_5'); ?></div>
+		<div class="mmd-wp-json-url-title"><?php echo _tran('admin_url_5'); ?></div>
 		<div class="mmd-wp-json-url-text">
-			<? echo _tran('admin_url_5_info'); ?>
+			<?php echo _tran('admin_url_5_info'); ?>
 		</div>
-		<div class="mmd-wp-json-url"><? echo POST_COMMENT_URL; ?></div>
+		<div class="mmd-wp-json-url"><?php echo POST_COMMENT_URL; ?></div>
 		<div class="mmd-wp-json-url-params">
-			<b><? echo _tran('admin_url_req_field'); ?>:</b> "postid": <? echo _tran('admin_url_5_postid_info'); ?><br/>
-			<b><? echo _tran('admin_url_req_field'); ?>:</b> "name": <? echo _tran('admin_url_5_name_info'); ?><br/>
-			<b><? echo _tran('admin_url_req_field'); ?>:</b> "email": <? echo _tran('admin_url_5_email_info'); ?><br/>
-			<b><? echo _tran('admin_url_req_field'); ?>:</b> "comment": <? echo _tran('admin_url_5_comment_info'); ?>
+			<b><?php echo _tran('admin_url_req_field'); ?>:</b> "postid": <?php echo _tran('admin_url_5_postid_info'); ?><br/>
+			<b><?php echo _tran('admin_url_req_field'); ?>:</b> "name": <?php echo _tran('admin_url_5_name_info'); ?><br/>
+			<b><?php echo _tran('admin_url_req_field'); ?>:</b> "email": <?php echo _tran('admin_url_5_email_info'); ?><br/>
+			<b><?php echo _tran('admin_url_req_field'); ?>:</b> "comment": <?php echo _tran('admin_url_5_comment_info'); ?>
 		</div>
 	</p>
 
 	<br/>
-	<a href="<? echo $newAccountURL; ?>" target="_blank"><img src="<? echo MMD_WP_PLUGIN_URL."img/MMDLogo.png"; ?>" width="150"/></a>
+	<a href="<?php echo $newAccountURL; ?>" target="_blank"><img src="<?php echo MMD_WP_PLUGIN_URL."img/MMDLogo.png"; ?>" width="150"/></a>
 </div>
-<?
+<?php
 
 }
 
