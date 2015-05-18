@@ -4,7 +4,7 @@
  * Plugin Name: Make me Droid Mobile App Connector
  * Plugin URI: http://www.makemedroid.com
  * Description: Connect your WordPress blog or site to your Android or IPhone mobile application made on Make me Droid. You can visualize information about your app, send automatic push messages to the app when you write new articles on your blog, and more.
- * Version: 1.5
+ * Version: 1.6
  * Author: Make me Droid (contact@makemedroid.com)
  * Author URI:  http://www.makemedroid.com
  * Text Domain: makemedroid-wp-connector
@@ -152,6 +152,54 @@ function mmd_wp_get_locale($locale)
 
 function mmd_wp_footer() {
     echo '<div style="text-align:right;font-size:0.7em;padding:5px;background:black;color:white;">'._tran('footer_mmd_credit_mobile_app_sponsored').'</div>';
+}
+
+/*
+ * Try by all possible ways to access the GET URL parameters. Depending on servers and WP configurations, this behaviours changes
+ * and we cannot fully rely on reading $_GET or using query_vars.
+ */
+function mmd_wp_extract_GET()
+{
+	global $_GET, $_SERVER, $_REQUEST;
+
+	if (!empty($_GET))
+		return $_GET;
+
+	if (isset($_REQUEST) && !empty($_REQUEST))
+	{
+		$args = wp_parse_args($_REQUEST);
+		return $args;
+	}
+
+	if (isset($_SERVER['QUERY_STRING']))
+	{
+		$args = wp_parse_args($_SERVER['QUERY_STRING']);
+		return $args;
+	}
+
+	if (!isset($_SERVER['REQUEST_URI']))
+	{
+		return array();
+	}
+	
+	$url = parse_url($_SERVER['REQUEST_URI']);
+	if (!isset($url["query"]))
+	{
+		// If server URI does not contain the server name (always the case?) we happen the server name,
+		// as some PHP versions of configuration of parse_url() seem not to work with only the /....
+		// So we add the server name
+		if (isset($_SERVER['SERVER_NAME']))
+		{
+			$url = parse_url($_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
+			if (!isset($url["query"]))
+				return array();
+		}
+		else
+			return array();
+	}
+
+	$args = wp_parse_args($url["query"]);
+	return $args;
 }
 
 ?>

@@ -2,8 +2,8 @@
 Contributors: Make me Droid
 Tags: app, mobile app, android, iphone, app builder, mobile, posts, admin, api, automatic, feed, free, notification, statistics, wordpress, makemedroid
 Requires at least: 3.0.0
-Tested up to: 3.9.0
-Stable tag: 1.5
+Tested up to: 4.2.2
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ A mobile website still needs users to type your address manually in a browser. H
 2. Make me Droid website
 
 == Changelog ==
+
+= 1.6 =
+* Solved connectivity issue between this plugin and Make me Droid website. Now this plugin should run well on a much larger number of Wordpress sites.
 
 = 1.5 =
 * Now working on PHP installations that don't have the "short open tags" enabled.

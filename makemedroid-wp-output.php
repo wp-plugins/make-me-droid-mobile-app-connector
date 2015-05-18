@@ -13,6 +13,8 @@ function mmd_wp_output_articles()
 {
 	mmd_wp_output_write_json_header();
 	
+	$get = mmd_wp_extract_GET();
+	
 	// TODO: extract and handle $_GET s=, si=,cnt=, etc
 		
 	$output = array();
@@ -27,9 +29,9 @@ function mmd_wp_output_articles()
 		'suppress_filters' => true);
 	
 	// Optional category
-	if (isset($_GET["catid"]))
+	if (isset($get["catid"]))
 	{
-		$args["category"] = $_GET["catid"];
+		$args["category"] = $get["catid"];
 	}
 	
 	$posts = get_posts($args);
@@ -81,6 +83,8 @@ function mmd_wp_output_categories()
 {
 	mmd_wp_output_write_json_header();
 	
+	$get = mmd_wp_extract_GET();
+	
 	// TODO: extract and handle $_GET s=, si=,cnt=, etc
 	
 	$output = array();
@@ -110,15 +114,17 @@ function mmd_wp_output_attachments()
 {
 	mmd_wp_output_write_json_header();
 	
+	$get = mmd_wp_extract_GET();
+	
 	// TODO: extract and handle $_GET s=, si=,cnt=, etc
 	
 	$output = array();
 	mmd_wp_output_append_site_info($output);
 	
 	// Mandatory post ID
-	if (isset($_GET["postid"]))
+	if (isset($get["postid"]))
 	{
-		$post = get_post($_GET["postid"]);
+		$post = get_post($get["postid"]);
 		if ($post != null)
 		{
 			$output["postid"] = $post->ID;
@@ -138,6 +144,8 @@ function mmd_wp_output_comments()
 {
 	mmd_wp_output_write_json_header();
 	
+	$get = mmd_wp_extract_GET();
+	
 	// TODO: extract and handle $_GET s=, si=,cnt=, etc
 		
 	$output = array();
@@ -149,9 +157,9 @@ function mmd_wp_output_comments()
 	);
 	
 	// Optional post
-	if (isset($_GET["postid"]))
+	if (isset($get["postid"]))
 	{
-		$commentsArgs["post_id"] = $_GET["postid"];
+		$commentsArgs["post_id"] = $get["postid"];
 	}
 	
 	$output["comments"] = array();
@@ -249,14 +257,16 @@ function mmd_wp_output_connect()
 	header('Content-Type: application/json; charset=utf-8');
 	header('Access-Control-Allow-Origin: http://www.makemedroid.com'); // Whitelist for cross-domain call.
 		
+	$get = mmd_wp_extract_GET();
+	
 	// API KEY CONFIRMATION
-	// We normally get the MMD app API key, appkey and account in $_GET.
+	// We normally get the MMD app API key, appkey and account in $get.
 	// Use this information to call the MMD API and make sure these information are valid. If so,
 	// we can save this in the plugin database for later use.
-	$account = $_GET["account"];
-	$appkey = $_GET["appkey"];
-	$apikey = $_GET["apikey"];
-	$apiurl = $_GET["apiurl"];
+	$account = $get["account"];
+	$appkey = $get["appkey"];
+	$apikey = $get["apikey"];
+	$apiurl = $get["apiurl"];
 	
 	$data = array(
 		"app"=> $appkey,
@@ -287,7 +297,7 @@ function mmd_wp_output_connect()
 		$result["entryPoints"]["postComment"] = POST_COMMENT_URL;
 	}
 
-	echo $_GET['callback']."(".json_encode($result).");";
+	echo $get['callback']."(".json_encode($result).");";
 }
 
 ?>

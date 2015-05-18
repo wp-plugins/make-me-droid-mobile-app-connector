@@ -10,7 +10,9 @@ function mmd_wp_input_handle_post_comment()
 {
 	//header('Content-Type: application/json; charset=utf-8');
 	
-	$getVar = array_map('stripslashes_deep', $_GET);	// Make sure to get unescaped $_GET content (especially the JSON content).
+	$get = mmd_wp_extract_GET();
+	
+	$getVar = array_map('stripslashes_deep', $get);	// Make sure to get unescaped $get content (especially the JSON content).
 		
 	if (!isset($getVar) || !isset($getVar["form"]))
 		die("Missing form");
