@@ -44,6 +44,8 @@ function mmd_wp_output_articles()
 		
 		// Real HTML content (final). Doesn't have any plugin keywords and so on.
 		$realContent = apply_filters('the_content',$post->post_content);
+		// Remove \n, \t and other special characters from content.
+		$realContent = preg_replace('/[\\n\\r\\t]/', '', $realContent);
 		$postEntry["htmlcontent"] = $realContent;
 		$postEntry["textcontent"] = html_entity_decode(strip_tags($realContent), ENT_QUOTES, "UTF-8");
 		
@@ -247,13 +249,13 @@ function mmd_wp_output_get_image_from_attachment_url($imageURL)
 		$image["thumbnail"] = array();
 		$image["thumbnail"]["url"] = $attachmentImageData[0];
 		$image["thumbnail"]["width"] = $attachmentImageData[1];
-		$image["thumbnail"]["height"] = $attachmentImageData[1];
+		$image["thumbnail"]["height"] = $attachmentImageData[2];
 		
 		$attachmentImageData = wp_get_attachment_image_src($attachmentID, "large");
 		$image["large"] = array();
 		$image["large"]["url"] = $attachmentImageData[0];
 		$image["large"]["width"] = $attachmentImageData[1];
-		$image["large"]["height"] = $attachmentImageData[1];
+		$image["large"]["height"] = $attachmentImageData[2];
 	}
 	else
 	{

@@ -48,6 +48,10 @@ A mobile website still needs users to type your address manually in a browser. H
 
 == Changelog ==
 
+= 1.9 =
+* Removed useless empty spaces or carriage returns from text content.
+* Fixed picture height value for "large" images.
+
 = 1.8 =
 * Better text content displayed in app (previously contained some unreadable keywords sometimes).
 * Better picture search: now getting more "images" in posts to be shown in app.
