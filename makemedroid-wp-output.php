@@ -41,13 +41,18 @@ function mmd_wp_output_articles()
 		$postEntry = array();
 		$postEntry["id"] = $post->ID;
 		$postEntry["title"] = $post->post_title;
-		$postEntry["textcontent"] = html_entity_decode(strip_tags($post->post_content), ENT_QUOTES, "UTF-8");	// TODO: also remove [caption]...[/caption] and other stuff like that.
+		
+		// Real HTML content (final). Doesn't have any plugin keywords and so on.
+		$realContent = apply_filters('the_content',$post->post_content);
+		$postEntry["htmlcontent"] = $realContent;
+		$postEntry["textcontent"] = html_entity_decode(strip_tags($realContent), ENT_QUOTES, "UTF-8");
+		
 		$postEntry["url"] = get_permalink($post->ID);
 		$postEntry["creationdate"] = $post->post_date;
 		$postEntry["creationdategmt"] = $post->post_date_gmt;
 		
 		// Retrieve attachments contained by this post
-		mmd_wp_output_append_attachments($post->post_content, $postEntry);
+		mmd_wp_output_append_attachments($realContent, $postEntry, $post);
 		
 		// Retrieve CATEGORIES contained by this post
 		$postEntry["categories"] = array();
@@ -190,44 +195,76 @@ function mmd_wp_output_append_site_info(&$output)
  * We can't rely on Wordpress post attachments, as they represent the attachments associated with a post by the time they were first added, but NOT the attachments
  * that really are in the post.
  */
-function mmd_wp_output_append_attachments($postcontent, &$output)
+function mmd_wp_output_append_attachments($postcontent, &$output, $post)
 {
 	// TODO: video + sound attachments
 	
 	// Retrieve IMAGES contained by this post
 	$output["images"] = array();
 	// We have to manually extract images really USED in the post (not the attached image, which can have been removed, or inserted in another post first and used here, etc: that's a mess).
-	preg_match_all("/<img[^']*?src=\"([^']*?)\"[^']*?>/", $postcontent, $matches, PREG_PATTERN_ORDER);
+	preg_match_all("/<img.*?src=\"(.*?)\"/", $postcontent, $matches, PREG_PATTERN_ORDER);
 	foreach($matches[1] as $match)
 	{
 		$imageURL = $match;
-		$attachmentID = pn_get_attachment_id_from_url($imageURL);
 		
-		if ($attachmentID !== false)
-		{
-			$attachmentImageData = wp_get_attachment_image_src($attachmentID, thumbnail);
-			$image["thumbnail"] = array();
-			$image["thumbnail"]["url"] = $attachmentImageData[0];
-			$image["thumbnail"]["width"] = $attachmentImageData[1];
-			$image["thumbnail"]["height"] = $attachmentImageData[1];
-			
-			$attachmentImageData = wp_get_attachment_image_src($attachmentID, large);
-			$image["large"] = array();
-			$image["large"]["url"] = $attachmentImageData[0];
-			$image["large"]["width"] = $attachmentImageData[1];
-			$image["large"]["height"] = $attachmentImageData[1];
-		}
-		else
-		{
-			$image["thumbnail"] = array();
-			$image["thumbnail"]["url"] = $imageURL;
-			
-			$image["large"] = array();
-			$image["large"]["url"] = $imageURL;
-		}
+		$image = mmd_wp_output_get_image_from_attachment_url($imageURL);
 		
 		$output["images"][] = $image;
 	}
+	
+	// Incase we can't find any picture in post content, we try to fallback to the real wordpress attachments.
+	// This can be a problem if author posted a picture to a post then removed it on purpose, BUT in the other hand,
+	// this allows us getting extra wordpress third party plugin content that adds content OUTSIDE of the post content itself.
+	// TODO: provide an options to enable this fallback or not.
+	if (empty($output["images"]))
+	{
+		// Attachments
+		$wp_attachments = get_children(array(
+			'post_type' => 'attachment',
+			'post_parent' => $post->ID,
+			'post_mime_type' => 'image',
+			'orderby' => 'menu_order',
+			'order' => 'ASC',
+			'suppress_filters' => false
+		));
+		$attachments = array();
+		if (!empty($wp_attachments)) {
+			foreach ($wp_attachments as $wp_attachment) {
+				$image = mmd_wp_output_get_image_from_attachment_url($wp_attachment->guid);
+				$output["images"][] = $image;
+			}
+		}
+	}
+}
+
+function mmd_wp_output_get_image_from_attachment_url($imageURL)
+{
+	$attachmentID = pn_get_attachment_id_from_url($imageURL);
+		
+	if ($attachmentID !== false)
+	{
+		$attachmentImageData = wp_get_attachment_image_src($attachmentID, "thumbnail");
+		$image["thumbnail"] = array();
+		$image["thumbnail"]["url"] = $attachmentImageData[0];
+		$image["thumbnail"]["width"] = $attachmentImageData[1];
+		$image["thumbnail"]["height"] = $attachmentImageData[1];
+		
+		$attachmentImageData = wp_get_attachment_image_src($attachmentID, "large");
+		$image["large"] = array();
+		$image["large"]["url"] = $attachmentImageData[0];
+		$image["large"]["width"] = $attachmentImageData[1];
+		$image["large"]["height"] = $attachmentImageData[1];
+	}
+	else
+	{
+		$image["thumbnail"] = array();
+		$image["thumbnail"]["url"] = $imageURL;
+		
+		$image["large"] = array();
+		$image["large"]["url"] = $imageURL;
+	}
+	
+	return $image;
 }
 
 // Appends comments to an on going JSON array output
