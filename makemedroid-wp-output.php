@@ -15,13 +15,17 @@ function mmd_wp_output_articles()
 	
 	$get = mmd_wp_extract_GET();
 	
-	// TODO: extract and handle $_GET s=, si=,cnt=, etc
+	// TODO: extract and handle $_GET s=
+	
+	$startIndex = (isset($get["si"])?$get["si"]:0);
+	$cnt = (isset($get["cnt"])?$get["cnt"]:10);
 		
 	$output = array();
 	mmd_wp_output_append_site_info($output);
 	
+	// First pass query, to get total posts number
 	$args = array(
-		'posts_per_page'   => 10,
+		'numberposts'   => -1,	// all posts
 		'offset'           => 0,
 		'orderby'          => 'post_date',
 		'order'            => 'DESC',
@@ -34,7 +38,17 @@ function mmd_wp_output_articles()
 		$args["category"] = $get["catid"];
 	}
 	
+	$allPosts = get_posts($args);
+	$output["totalItems"] = count($allPosts);
+	
+	// Second pass query, to get only the required posts
+	$args["numberposts"] = $cnt;
+	$args["offset"] = $startIndex;
+	
 	$posts = get_posts($args);
+	
+	$output["itemCount"] = count($posts);
+	
 	$output["posts"] = array();
 	foreach ($posts as $post)
 	{

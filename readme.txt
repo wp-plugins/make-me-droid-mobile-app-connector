@@ -3,7 +3,7 @@ Contributors: Make me Droid
 Tags: app, mobile app, android, iphone, app builder, mobile, posts, admin, api, automatic, feed, free, notification, statistics, wordpress, makemedroid
 Requires at least: 3.0.0
 Tested up to: 4.2.2
-Stable tag: 1.9
+Stable tag: 1.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ A mobile website still needs users to type your address manually in a browser. H
 2. Make me Droid website
 
 == Changelog ==
+
+= 1.10 =
+* Wordpress posts list can now show more than the 10 latest posts. Make me Droid app "fetch more" capability can handle it to read posts 10 by 10.
 
 = 1.9 =
 * Removed useless empty spaces or carriage returns from text content.
